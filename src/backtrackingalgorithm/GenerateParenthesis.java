@@ -36,7 +36,9 @@ public class GenerateParenthesis {
             if(lcount+rcount==2*n){
                 if(lcount==n&&rcount==n){
                     list.add(sb.toString());
+                    sb.deleteCharAt(sb.length()-1);
                     rcount--;
+                    break;
                 }else if(lcount>n){
                     lcount--;
                     sb.deleteCharAt(sb.length()-1);

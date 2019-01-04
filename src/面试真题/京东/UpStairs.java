@@ -11,21 +11,23 @@ import java.util.Scanner;
 保证n小于等于100。为了防止溢出，请返回结果Mod 1000000007的值。
  */
 public class UpStairs {
-	static int[] memo;
-	public static int fun(int n)
+	static long[] memo;
+	public static long fun(int n)
 	{
 		if(memo[n]!=-1)
 			return memo[n];
-		memo[n] = (fun(n-1)+fun(n-2))%1000000007;
-		return (fun(n-1)+fun(n-2))%1000000007;
+		memo[n] = (fun(n-1)+fun(n-2));
+		return (fun(n-1)+fun(n-2));
 	}
-	public static int fun1(int n)
+	public static long climbStairs(int n)
 	{
+		if(n==1)
+			return 1;
 		int m = n-1;
-		memo = new int[n];
+		memo = new long[n];
 		Arrays.fill(memo, -1);
-		memo[1] = 1;
-		memo[2] = 2;
+		memo[0] = 1;
+		memo[1] = 2;
 		return fun(m);
 	}
 	public static void main(String[] args) {
@@ -34,7 +36,7 @@ public class UpStairs {
 		while(sc.hasNext())
 		{
 			int n = sc.nextInt();
-			System.out.println(fun1(n));
+			System.out.println(climbStairs(n));
 		}
 	}
 

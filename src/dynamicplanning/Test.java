@@ -15,21 +15,21 @@ import java.math.BigInteger;
  * @Version: 1.0
  */
 public class Test {
-    public int uniquePaths(long m, long n) {
-        if(m==1&&n==1)
-            return 1;
-        return jiecheng(m+n-2).divide(jiecheng(m-1)).divide(jiecheng(n-1)).intValue();
+    public static void main(String[] args) {
+        student s = new student();
+        s.setName("song");
+        student b = s;
+        b.setName("zhou");
     }
-    public BigInteger jiecheng(long n){
-        if(n==1||n==0){
-            return BigInteger.valueOf(1);
-        }else{
-            return BigInteger.valueOf(n).multiply(jiecheng(n-1));
-        }
+}
+class student{
+    private String name;
+
+    public String getName() {
+        return name;
     }
 
-    public static void main(String[] args) {
-        Test t = new Test();
-        System.out.println(t.uniquePaths(1,2));;
+    public void setName(String name) {
+        this.name = name;
     }
 }
