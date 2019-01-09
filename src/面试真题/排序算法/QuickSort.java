@@ -3,7 +3,7 @@ package 面试真题.排序算法;
  * 快速排序
  */
 public class QuickSort {
-	//一趟排序
+	//一趟划分
 	public static int Partition(int[] a,int low,int high)
 	{
 		int pivotkey = a[low];
@@ -22,8 +22,7 @@ public class QuickSort {
 	//递归快速排序
 	public static void QSort(int[] a,int low,int high)
 	{
-		if(low<high)
-		{
+		if(low<high) {
 			int pivotkey = Partition(a,low,high);
 			QSort(a, low, pivotkey-1);
 			QSort(a, pivotkey+1,high);
