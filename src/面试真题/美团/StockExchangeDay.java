@@ -7,8 +7,7 @@ package 面试真题.美团;
  */
 /*
  * 思路：
-自己看了一下网上的其他人的解法，发现果然很赞。
-别人的思路是这样的。用两个数组，一个数组preProfit[i],
+用两个数组，一个数组preProfit[i],
 指的是第i+1天（数组下标从0开始）之前，当然也包括第i+1天的最大收益，
 需要保存的一个数据是第i+1天之前的最小价格，
 如果第i+1天的价格减去最小价格后的利润是要比不在这天卖出的利润大，
@@ -31,17 +30,21 @@ public class StockExchangeDay {
 		int max = Integer.MIN_VALUE;
 		//如果今天的价格减掉最小价格比截止到昨天的最大收益大，就用今天的价格减去最小价格，否则，用截止到昨天的最大收益
 		int minBuy = prices[0];
+		int maxprofit = 0;
 		for(int i=1;i<n;i++)
 		{
 			minBuy = Math.min(minBuy, prices[i]);
-			preProfit[i] = Math.max(preProfit[i-1],prices[i]-minBuy);
+			maxprofit = Math.max(maxprofit, prices[i] - minBuy);
+			preProfit[i] = maxprofit;
 		}
 		//如果最大价格减掉今天价格比明天以后买入的最大收益大，就用最大价格减掉今天价格，否则，用明天以后买入的最大收益
 		int maxShell = prices[n-1];
+		int maxshellprofit = 0;
 		for(int i=n-2;i>=0;i--)
 		{
 			maxShell = Math.max(maxShell, prices[i]);
-			postProfit[i] = Math.max(postProfit[i+1],maxShell-prices[i]);
+			maxshellprofit = Math.max(maxshellprofit,maxShell-prices[i]);
+			postProfit[i] = maxshellprofit;
 		}
 		//求出两次交易的和，与总的最大利润进行比较
 		for(int i=0;i<n;i++)
