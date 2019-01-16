@@ -14,13 +14,14 @@ import java.util.List;
 public class letterCombinations {
     public static List<String> letterCombinations(String digits) {
         char[] digit = digits.trim().toCharArray();
+        List<List<String>> repository = new ArrayList<>();
+        List<String> list = new ArrayList<>();
         int length = digit.length;
         if(length==0)
-            return Arrays.asList(new String(""));
+            return list;
         char[][] alphabet = new char[][]{{'a','b','c'},{'d','e','f'}
                 ,{'g','h','i'},{'j','k','l'},{'m','n','o'}
                 ,{'p','q','r','s'},{'t','u','x'},{'w','x','y','z'}};
-        List<List<String>> repository = new ArrayList<>();
         for(int i=0;i<length;i++){
             List<String> strlist = new ArrayList<>();
             for(int j=0;j<alphabet[Integer.valueOf(String.valueOf(digit[i]))-2].length;j++){
@@ -29,36 +30,28 @@ public class letterCombinations {
             repository.add(strlist);
         }
         StringBuffer sb = new StringBuffer("");
-        List<String> list = new ArrayList<>();
-//        for(int i=0;i<alphabet[Integer.valueOf(String.valueOf(digit[0]))].length-2;i++){
-//            sb = new StringBuffer(String.valueOf(alphabet[Integer.valueOf(String.valueOf(digit[0]))-2][i]));
-//            fun(digit,alphabet,0,i,sb,list);
-//        }
-        fun(repository,0,0,sb,list);
+        fun(repository,0,sb,list);
         return list;
     }
 
-    private static void fun(List<List<String>> repository,int row, int colunm,StringBuffer sb,List<String> list) {
+    private static void fun(List<List<String>> repository,int row,StringBuffer sb,List<String> list) {
         int digi_length = repository.size();
         int row_length = repository.get(row).size();
-        if(colunm==row_length){
-            return;
-        }
         for(int i=0;i<row_length;i++){
-            sb.append(repository.get(i).get(colunm));
+            sb.append(repository.get(row).get(i));
             if(row==digi_length-1){
                 list.add(sb.toString());
-                sb.deleteCharAt(digi_length-1);
-                fun(repository,row,colunm+1,sb,list);
             }else {
-                fun(repository,row+1,0,sb,list);
+                fun(repository,row+1,sb,list);
             }
+            sb.deleteCharAt(sb.length()-1);
         }
     }
 
     public static void main(String[] args) {
         String str = new String("23");
-        letterCombinations(str);
+        List<String> strings = letterCombinations(str);
+        System.out.println();
     }
 
 }

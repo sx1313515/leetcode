@@ -12,7 +12,7 @@ package dynamicplanning;
  * @CreateDate: 2018/12/28 14:38
  */
 public class DifferentpathsII {
-    public int uniquePathsWithObstacles(int[][] obstacleGrid) {
+    public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int row = obstacleGrid.length;
         int index = 1;
         if (row < 1)
@@ -51,7 +51,7 @@ public class DifferentpathsII {
             }
         }
         while (index < row || index < column) {
-            if (index >= row) {
+            if (index >= row-1) {
                 for (int i = index; i < column; i++) {
                     if (obstacleGrid[row - 1][i] == 1) {
                         obstacleGrid[row - 1][i] = 0;
@@ -60,7 +60,7 @@ public class DifferentpathsII {
                     }
                 }
                 break;
-            } else if (index >= column) {
+            } else if (index >= column-1) {
                 for (int i = index; i < row; i++) {
                     if (obstacleGrid[i][column - 1] == 1) {
                         obstacleGrid[i][column - 1] = 0;
@@ -93,44 +93,20 @@ public class DifferentpathsII {
     public static void main(String[] args) {
         int[][] value = new int[][]{{0,0},
                 {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {1,0},
                 {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {1,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {0,0},
                 {0,1},
                 {0,0},
-                {0,0},
                 {1,0},
-                {0,0},
                 {0,0},
                 {0,1},
                 {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {0,1},
                 {0,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {1,0},
-                {0,0},
-                {0,0},
-                {0,0},
                 {0,0}};
+        System.out.println(uniquePathsWithObstacles(value));
     }
 }
