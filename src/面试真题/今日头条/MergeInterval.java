@@ -23,19 +23,6 @@ public class MergeInterval {
         Collections.sort(intervals, new Comparator<Interval>() {
             @Override
             public int compare(Interval o1, Interval o2) {
-//                if(o1.start==o2.start){
-//                    if(o1.end==o2.end)
-//                        return 0;
-//                    else if(o1.end>o2.end){
-//                        return 1;
-//                    }else {
-//                        return -1;
-//                    }
-//                }else if(o1.start>o2.end){
-//                    return 1;
-//                }else {
-//                    return  -1;
-//                }
                 if(o1.start != o2.start){
                     return o1.start-o2.start;
                 }else {
@@ -73,22 +60,5 @@ class Interval{
         this.start = start;
         this.end = end;
     }
-
-//    @Override
-//    public int compareTo(Interval o) {
-//        if(this.start==o.start){
-//            if(this.end==o.end)
-//                return 0;
-//            else if(this.end>o.end){
-//                return 1;
-//            }else {
-//                return -1;
-//            }
-//        }else if(this.start>this.end){
-//            return 1;
-//        }else {
-//            return  -1;
-//        }
-//    }
 }
 

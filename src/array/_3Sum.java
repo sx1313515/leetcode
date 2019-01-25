@@ -24,13 +24,6 @@ import java.util.*;
 * @CreateDate:     2018/12/25 15:31
 */
 public class _3Sum {
-    /**
-    * @author      作者姓名
-    * @param       * @param null
-    * @return
-    * @exception
-    * @date        2018/12/25 15:34
-    */
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> outlist = new ArrayList<>();
         List<Integer> list = new ArrayList<>();

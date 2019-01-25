@@ -24,8 +24,7 @@ public class LongestIncreasingSubsequence {
 		
 	}
 	//动态规划算法     
-	public static int fun3(int[] nums)
-	{
+	public static int fun3(int[] nums) {
 		int size = nums.length;
 		if(size==0)
 			return 0;
@@ -41,7 +40,6 @@ public class LongestIncreasingSubsequence {
 		for(int i=0;i<size;i++)
 			res = Math.max(res, memo[i]);
 		return res;
-		
 	}
 	static int[] memo;
 	public static int fun2(int[] nums)
@@ -59,10 +57,10 @@ public class LongestIncreasingSubsequence {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		 int w[] = {1, 3, 6, 7, 9, 4, 10, 5, 6}; // 6
-		 Arrays.sort(w);
-		 for (int i=0;i<w.length;i++) 
-			System.out.print(w[i]+" ");
-		System.out.println(fun2(w));;
+//		 Arrays.sort(w);
+//		 for (int i=0;i<w.length;i++)
+//			System.out.print(w[i]+" ");
+		System.out.println(fun3(w));;
 	}
 
 }

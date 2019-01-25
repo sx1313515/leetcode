@@ -5,6 +5,11 @@ package dynamicplanning;
  * @Description: java类作用描述
  * @CreateDate: 2018/12/27 10:50
  */
+/*
+  思路:
+  使用动态规划算法，如果Si到Sj是回文串，那么Pi等于Pj。并且Si+1到Sj-1也是回文串
+  我们首先初始化一字母和二字母的回文，然后找到所有三字母回文，并依此类推…
+ */
 public class LongestPalindromicSubstring {
     /**
     * @Description:    o(n^2)
@@ -19,22 +24,21 @@ public class LongestPalindromicSubstring {
         }
         if(length==0)
             return null;
-        boolean[][] values = new boolean[length][length];
-        for(int i=0;i<length;i++){
+        boolean[][] values = new boolean[length][length];   //values[i][j]表示从i到j是否为回文串
+        for(int i=0;i<length;i++){  //初始化一字母回文串，每个字母都是长度为一的回文串
             values[i][i]=true;
         }
         int sum = 1;
         int flagx = 1,flagy=1;
-        for(int i=1;i<length;i++){
+        for(int i=1;i<length;i++){  //初始化二字母回文串，两个相同连续的字母是长度为二的回文串
             if(chars[i]==chars[i-1]){
                 values[i-1][i]=true;
                 sum=2;
                 flagx=i-1;
                 flagy=i;
-
             }
         }
-        for (int i = 2; i < length; i++) {
+        for (int i = 2; i < length; i++) {  //长度为3，4,5，，，，，i是否是回文串
             for (int j = 0; j < length-i; j++) {
                 if(chars[j]==chars[j+i]&&values[j+1][j+i-1]==true){
                     values[j][j+i] = true;
