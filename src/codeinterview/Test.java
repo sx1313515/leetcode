@@ -11,27 +11,9 @@ import java.util.Scanner;
  */
 public class Test {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = scanner.nextInt();
-        }
-        if (n==1){
-            System.out.println(0);
-            return;
-        }
-        int sum = 0;
-        for (int i=1;i<n;i++){
-            int sum1 = 0;
-            for (int j = 0;j<i;j++){
-                if (a[j]<a[i]){
-                    sum1+=a[j];
-                }
-            }
-            sum += sum1;
-        }
-        System.out.println(sum);
+        String str = "02";
+        System.out.println(1 ^ 0);
+
     }
 
     public int coins1(int[] arr, int aim) {

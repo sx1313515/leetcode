@@ -30,12 +30,13 @@ public class LongestIncreasingSubsequence {
 			return 0;
 		int[] memo = new int[size];
 		Arrays.fill(memo, 1);
-		for(int i=1;i<size;i++)
+		for (int i = 1; i < size; i++) {
 			for(int j=0;j<i;j++)
 			{
 			  if(nums[i]>nums[j])
 				  memo[i] = Math.max(memo[i], 1+memo[j]);
 			}
+		}
 		int res = 0;
 		for(int i=0;i<size;i++)
 			res = Math.max(res, memo[i]);

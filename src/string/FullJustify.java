@@ -1,6 +1,5 @@
 package string;
 
-import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,7 +61,6 @@ public class FullJustify {
         return list;
     }
 
-    @Contract(pure = true)
     private String produceSpace(int i) {
         String str = "";
         for (int j = 0; j < i; j++) {
