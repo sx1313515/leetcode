@@ -7,7 +7,7 @@ package dynamicplanning;
  */
 /*
   思路:
-  使用动态规划算法，如果Si到Sj是回文串，那么Pi等于Pj。并且Si+1到Sj-1也是回文串
+  使用动态规划算法，如果Si到Sj是回文串，且Si-1等于Sj+1。那么Si-1到Sj+1也是回文串
   我们首先初始化一字母和二字母的回文，然后找到所有三字母回文，并依此类推…
  */
 public class LongestPalindromicSubstring {
