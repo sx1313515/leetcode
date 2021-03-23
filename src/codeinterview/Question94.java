@@ -2,6 +2,7 @@ package codeinterview;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -49,6 +50,7 @@ public class Question94 {
             PutQueen(n,0);
             System.out.println(sum);
         }
+
 
     }
 }

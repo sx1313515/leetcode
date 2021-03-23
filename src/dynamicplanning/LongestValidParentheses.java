@@ -3,6 +3,8 @@ package dynamicplanning;
 import java.util.Stack;
 
 /**
+ * 括号字符串的最长有效长度
+ * 给定一个括号字符串str，返回最长的能够完全正确匹配括号字符字串的长度。
  * 给定一个只包含 '(' 和 ')' 的字符串，找出最长的包含有效括号的子串的长度。
  * 输入: "(()"
  * 输出: 2
@@ -25,7 +27,7 @@ public class LongestValidParentheses {
                 chars[i]='0';
                 stack.push(i);
             }else {
-                if(stack.size()<1){
+                if(stack.isEmpty()){
                     chars[i]='0';
                     continue;
                 }
