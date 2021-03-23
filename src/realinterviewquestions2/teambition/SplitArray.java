@@ -1,6 +1,4 @@
-package 面试真题.teambition;
-
-import java.util.Arrays;
+package realinterviewquestions2.teambition;
 
 /**
  * 描述:给定一个非负整数数组和一个整数 m，你需要将这个数组分成 m 个非空的连续子数组。
