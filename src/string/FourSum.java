@@ -30,7 +30,6 @@ public class FourSum {
             int[] nums1 = new int[nums.length - i-1];
             System.arraycopy(nums, i+1, nums1, 0, nums1.length);  //取了一个就从剩下的数里面去n-1个
             if(r==1){
-                if()
                 set.add(pre);
             }
             else {
@@ -43,5 +42,6 @@ public class FourSum {
         if(nums.length<4)
             return null;
         combination(nums,4,"",target);
+        return null;
     }
 }

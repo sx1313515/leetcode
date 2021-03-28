@@ -13,9 +13,6 @@ import java.util.Map;
  *
  * 二叉树不超过1000个节点，且节点数值范围是 [-1000000,1000000] 的整数。
  *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/path-sum-iii
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * @Author: xiang_song
  * @CreateDate: 2021/3/18 19:07
  */

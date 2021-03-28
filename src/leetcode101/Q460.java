@@ -5,8 +5,26 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 /**
- * 描述:
- *
+ * 描述:LFU 缓存
+ * 一、获取元素
+ *  1、如果不存在直接返回
+ *  2、如果存在
+ *      1）更新那个节点的使用频率，从频率map中移除在加入
+ *      2）更新全局最小频次
+ * 二、插入元素
+ *  1、如果原来存在
+ *     1）替换value
+ *     2）更新那个节点的使用频率，从频率map中移除在加入
+ *     3）更新全局最小频次
+ *  2、如果原来不存在
+ *     1）容量超标了
+ *       （1）根据全局最小频次获取频次队列，并删除第一个
+ *       （2）map移除最小频次的那个元素
+ *       （3）新元素加入到map中
+ *       （4）全局最小min为1，新元素加入min为1的队列中
+ *     2）容量未超标
+ *       （1）新元素加入到map中
+ *       （2）全局最小min为1，新元素加入min为1的队列中
  * @Author: xiang_song
  * @CreateDate: 2021/3/12 9:01
  */
@@ -15,7 +33,7 @@ public class Q460 {
 
 class LFUCache {
     Map<Integer, Node> cache;  // 存储缓存的内容
-    Map<Integer, LinkedHashSet<Node>> freqMap; // 存储每个频次对应的双向链表
+    Map<Integer, LinkedHashSet<Node>> freqMap; // 存储每个频次对应的双向链表,可能有多个数的频次一样
     int size;
     int capacity;
     int min; // 存储当前最小频次
@@ -61,7 +79,7 @@ class LFUCache {
         int freq = node.freq;
         LinkedHashSet<Node> set = freqMap.get(freq);
         set.remove(node);
-        if (freq == min && set.size() == 0) {
+        if (freq == min && set.size() == 0) {  //原来的频次最小，并且这个频次只有这一个数
             min = freq + 1;
         }
         // 加入新freq对应的链表
@@ -86,7 +104,7 @@ class LFUCache {
 
     Node removeNode() {
         LinkedHashSet<Node> set = freqMap.get(min);
-        Node deadNode = set.iterator().next();
+        Node deadNode = set.iterator().next(); //两个或更多个键具有相同使用频率时，应该去除 最久未使用 的键，因为LinkedHashSet是有序的，所以第一个元素一定是最早插入的
         set.remove(deadNode);
         return deadNode;
     }
@@ -95,7 +113,7 @@ class LFUCache {
 class Node {
     int key;
     int value;
-    int freq = 1;
+    int freq = 1;  //出现频次
 
     public Node() {}
 
