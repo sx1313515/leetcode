@@ -30,28 +30,29 @@ public class Question6 {
     }
 
     private static class QueueByStack {
-        private Stack<Integer> s1 = new Stack<>();
-        private Stack<Integer> s2 = new Stack<>();
+        private Stack<Integer> s1 = new Stack<>();  //s1是放最初的元素
+        private Stack<Integer> s2 = new Stack<>();  //s2是放s1翻转后的元素，相当于队列的顺序
+        //队列尾部增加元素
         public void add(int x) {
             s1.push(x);
         }
-
+        //弹出队列的头元素
         public void poll() {
-            while (s2.empty()) {
+            if (s2.empty()) {
                 while (!s1.empty()) {
                     s2.push(s1.pop());
                 }
             }
-            s2.pop();
+            s2.pop(); //如果s2有元素就取s2的，如果没有就将s1的按顺序放入s2
         }
-
+        //获取队列的头元素
         public int peek() {
-            while (s2.empty()) {
+            if (s2.empty()) {
                 while (!s1.empty()) {
                     s2.push(s1.pop());
                 }
             }
-            return s2.peek();
+            return s2.peek(); //如果s2有元素就取s2的，如果没有就将s1的按顺序放入s2
         }
     }
 }

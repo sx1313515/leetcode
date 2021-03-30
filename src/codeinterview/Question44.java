@@ -19,7 +19,7 @@ public class Question44 {
 
     private static int fun(String str) {
         int length = str.length();
-        if (length == 0) {
+        if (length == 0) {  //长度为0时结果为1，因为长度为2截取两次是就是1
             return 1;
         }
         if (str.charAt(0) == '0') {
@@ -33,7 +33,8 @@ public class Question44 {
             return integer;
         }
         int result = fun(str.substring(1)) + (Integer.valueOf(str.substring(0,2)) > 26 ? 0 : fun(str.substring(2)));
-        memo.put(str, result);
+        memo.put(str, result);  //必须得用memo记忆，比如连续截取两个1和一次截取一个2
+        // 的结果是一样的，记忆下来就不用重复计算了
         return result;
     }
 }
