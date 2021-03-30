@@ -15,29 +15,31 @@ public class SpiralOrder {
         if(matrix == null || matrix.length ==0){
             return res;
         }
-        int numi = matrix.length;
-        int numj = matrix[0].length;
+        int numi = matrix.length;  //行数
+        int numj = matrix[0].length;  //列数
         //环数
         int loop = numi>numj?(numj+1)/2:(numi+1)/2;  //环数为行列最小值的一半
 
-        for(int i=0;i<loop;i++,numi-=2,numj-=2){  //编译一圈之后，剩余的行数和列数都会减二
-
-            for(int col = i;col<i+numj;col++){
+        for(int i=0;i<loop;i++){ //一次循环就是一环
+            for(int col = i;col<i+numj;col++){  //最上面一行
                 res.add(matrix[i][col]);
             }
-            for(int row = i+1;row<i+numi;row++){
+            for(int row = i+1;row<i+numi;row++){  //最右边一列
                 res.add(matrix[row][i+numj-1]);
             }
             //最后一环为一行或一列，则在上面两步之后已经全部输出，直接退出即可
-            if(numi ==1||numj==1)
+            if (numi == 1 || numj == 1) {
                 break;
+            }
 
-            for(int col = i+numj-2;col>=i;col--){
+            for(int col = i+numj-2;col>=i;col--){  //最下面一行
                 res.add(matrix[i+numi-1][col]);
             }
-            for(int row = i+numi -2;row>i;row--){
+            for(int row = i+numi -2;row>i;row--){  //最左边一列
                 res.add(matrix[row][i]);
             }
+            numi = numi -2; //编译一圈之后，剩余的行数和列数都会减二
+            numj = numj -2; //编译一圈之后，剩余的行数和列数都会减二
         }
         return res;
     }
