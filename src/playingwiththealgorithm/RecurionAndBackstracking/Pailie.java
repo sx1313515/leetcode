@@ -2,6 +2,7 @@ package playingwiththealgorithm.RecurionAndBackstracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /*
@@ -14,30 +15,16 @@ public class Pailie {
 	{
 		int size = nums.length;
 		used = new boolean[size];
-		Arrays.fill(used, false);
-		list = new ArrayList<ArrayList<Integer>>(); 
+		list = new ArrayList<>();
 		ArrayList<Integer> perlist = new ArrayList<>();
 		fun1(nums,0,perlist);
-		for(int i=0;i<list.size();i++)
-		{
-			for(int j=0;j<list.get(i).size();j++)
-			{
-				System.out.print(list.get(i).get(j)+" ");
-			}
-			System.out.println();
-			//System.out.println(i);
-		}
+		HashSet<String> set = new HashSet<>();
 	}
 	public static void fun1(int[] nums,int index,ArrayList<Integer> p)
 	{
 		if(index==nums.length)
 		{
-			ArrayList<Integer> perlist = new ArrayList<>();
-			for(int j=0;j<p.size();j++)
-			{
-				perlist.add(p.get(j));
-			}
-			list.add(perlist);
+			list.add(new ArrayList<>(p));
 			return;
 		}
 		for(int i=0;i<nums.length;i++)
@@ -51,7 +38,6 @@ public class Pailie {
 				used[i] = false;
 			}
 		}
-		return;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
