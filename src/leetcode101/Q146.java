@@ -71,7 +71,7 @@ public class Q146 {
         }
 
         private void addToHead(DLinkedNode node) {
-            node.prev = head;
+            node.prev = head;  //头节点始终是在第一个
             node.next = head.next;
             head.next.prev = node;
             head.next = node;
@@ -87,12 +87,12 @@ public class Q146 {
          * @param node
          */
         private void moveToHead(DLinkedNode node) {
-            removeNode(node);  //直接删除
+            removeNode(node);  //直接删除当前这个节点，通过移动指针的方式
             addToHead(node);   //首部插入
         }
 
         private DLinkedNode removeTail() {
-            DLinkedNode res = tail.prev;
+            DLinkedNode res = tail.prev;  //尾部节点始终是最后一个元素
             removeNode(res);
             return res;
         }

@@ -19,7 +19,7 @@ public class Question44 {
 
     private static int fun(String str) {
         int length = str.length();
-        if (length == 0) {  //长度为0时结果为1，因为长度为2截取两次是就是1
+        if (length == 0) {  //长度为0时结果为1，因为长度为2截取两个字符也算这次，这个时候剩余是空串
             return 1;
         }
         if (str.charAt(0) == '0') {

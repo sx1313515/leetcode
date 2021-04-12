@@ -20,8 +20,9 @@ public class Question170 {
     }
     //以节点A为根节点的子树是否包含树B
     boolean recur(TreeNode A, TreeNode B) {
-        if(B == null) return true; //当节点 BB 为空：说明树 BB 已匹配完成（越过叶子节点），因此返回 truetrue
-        if(A == null || A.val != B.val) return false; //当节点 AA 为空：说明已经越过树 AA 叶子节点，即匹配失败，返回 falsefalse    当节点 AA 为空：说明已经越过树 AA 叶子节点，即匹配失败，返回 falsefalse
+        if(B == null) return true; //当节点 B 为空：说明树 B 已匹配完成（越过叶子节点），因此返回 true
+        if(A == null || A.val != B.val) return false; //当节点 A为空：说明已经越过树 A 叶子节点，即匹配失败，返回 false当节点A为空：说明已经越过树A叶子节点，
+        // 即匹配失败，返回 false
         return recur(A.left, B.left) && recur(A.right, B.right);
     }
     class TreeNode {

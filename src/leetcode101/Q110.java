@@ -11,8 +11,8 @@ public class Q110 {
         return dept(root) != -1;
     }
 
-    private int dept(TreeNode root) {
-        if (root == null) {
+    private int dept(TreeNode root) {  //设个方法既可以计算树的深度，又可以判断是否是平衡二叉树
+        if (root == null) {  //空树深度为0
             return 0;
         }
         int left = dept(root.left);
