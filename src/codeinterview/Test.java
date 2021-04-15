@@ -1,13 +1,10 @@
 package codeinterview;
+
 import java.util.*;
 
 public class Test{
     public static void main(String[] args) {
-        PriorityQueue queue = new PriorityQueue();
-        queue.add(2);
-        queue.add(3);
-        queue.add(1);
-        System.out.println(queue);
+        System.out.println("".trim().length());;
     }
     static class stu{
         public int age;
