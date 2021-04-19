@@ -8,6 +8,6 @@ package realinterviewquestions.jianzhioffer;
  */
 public class Of57 {
     public int[][] findContinuousSequence(int target) {
-
+        return null;
     }
 }
