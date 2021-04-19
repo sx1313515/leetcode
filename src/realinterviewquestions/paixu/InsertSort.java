@@ -7,17 +7,17 @@ public class InsertSort {
 	public static void StraightInsertSort(int[] a)
 	{
 		int size = a.length-1;
-		for(int i=1;i<=size;i++)
+		for(int i=1;i<=size;i++)  //从第二个元素开始，每次跟前面的所以元素对比
 		{
 			if(a[i]<a[i-1])
 			{ 
 				int s = a[i];
-				int j=0;
+				int j;
 					for(j=i-1;j>=0&&a[j]>s;j--)
 					{
-						a[j+1] = a[j];
+						a[j+1] = a[j];  //元素后移一位
 					}
-				a[j+1] = s;
+				a[j+1] = s;  //为什么是j+1,因为是j先减再判断，如果判断不合法，但是其实已经减了
 			}
 		}
 	}
