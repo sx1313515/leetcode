@@ -12,7 +12,7 @@ import java.util.Map;
  * 路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。
  *
  * 二叉树不超过1000个节点，且节点数值范围是 [-1000000,1000000] 的整数。
- *
+ *https://leetcode-cn.com/problems/path-sum-iii/solution/dui-qian-zhui-he-jie-fa-de-yi-dian-jie-s-dey6/https://leetcode-cn.com/problems/path-sum-iii/solution/dui-qian-zhui-he-jie-fa-de-yi-dian-jie-s-dey6/
  * @Author: xiang_song
  * @CreateDate: 2021/3/18 19:07
  */
@@ -20,7 +20,7 @@ public class Q437 {
     public int pathSum(TreeNode root, int sum) {
         // key是前缀和, value是大小为key的前缀和出现的次数
         Map<Integer, Integer> prefixSumCount = new HashMap<>();
-        // 前缀和为0的一条路径
+        // 前缀和为0的一条路径，单个节点也有满足的情况
         prefixSumCount.put(0, 1);
         // 前缀和的递归回溯思路
         return recursionPathSum(root, prefixSumCount, sum, 0);

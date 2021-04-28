@@ -15,7 +15,7 @@ public class Q3 {
         System.out.println(new Q3().lengthOfLongestSubstring("dvdf"));
     }
     public int lengthOfLongestSubstring(String s) {
-        LinkedHashSet<Character> set = new LinkedHashSet<>();
+        LinkedHashSet<Character> set = new LinkedHashSet<>(); //有序
         char[] chars = s.toCharArray();
         if (chars.length == 0 || chars.length == 1) {
             return chars.length;

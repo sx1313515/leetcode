@@ -7,20 +7,17 @@ package leetcode101;
  * @CreateDate: 2021/3/18 19:07
  */
 public class Q543 {
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        TreeNode left = new TreeNode(1);
-        TreeNode right = new TreeNode(1);
-        root.left = left;
-        root.right = right;
-        new Q543().diameterOfBinaryTree(root);
-    }
     private int sum = 0;
     public int diameterOfBinaryTree(TreeNode root) {
         dfs(root);
-        return sum-1;
+        return sum-1;  //sum是节点数，直径是算边数，减一
     }
 
+    /**
+     * 求树的深度
+     * @param root
+     * @return
+     */
     private int dept(TreeNode root) {
         if (root == null) {
             return 0;
@@ -32,19 +29,11 @@ public class Q543 {
         if (root == null) {
             return;
         }
+        //当前节点的最大直径=左数深度+右树深度+1（根节点）
         int i = 1 + dept(root.left) + dept(root.right);
-        sum = Math.max(sum, i);
+        sum = Math.max(sum, i);  //取最大值
         dfs(root.left);
         dfs(root.right);
-    }
-    public int depth(TreeNode node) {
-        if (node == null) {
-            return 0; // 访问到空节点了，返回0
-        }
-        int L = depth(node.left); // 左儿子为根的子树的深度
-        int R = depth(node.right); // 右儿子为根的子树的深度
-        sum = Math.max(sum, L+R+1); // 计算d_node即L+R+1 并更新ans
-        return Math.max(L, R) + 1; // 返回该节点为根的子树的深度
     }
 
     public static class TreeNode {
