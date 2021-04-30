@@ -10,8 +10,9 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        char[] c = new char[1];
-        System.out.println(c[0] == ' ');
+        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
+        System.out.println(list1.getClass() == list2.getClass());
     }
 }
 
