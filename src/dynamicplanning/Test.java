@@ -3,16 +3,26 @@ package dynamicplanning;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
-public class Test {
+public class Test extends Thread{
+    public Test() {
+        this.setName("sadas");
+    }
+
+
     static class student{
         public int age;
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list1 = new ArrayList<>();
-        ArrayList<String> list2 = new ArrayList<>();
-        System.out.println(list1.getClass() == list2.getClass());
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1,1,1,new ArrayBlockingQueue<String>(2),);
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+
     }
 }
 
