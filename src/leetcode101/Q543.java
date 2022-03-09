@@ -8,6 +8,13 @@ package leetcode101;
  */
 public class Q543 {
     private int sum = 0;
+
+    /**
+     * 思路：对于每一个节点，直径长度 = 1 + 左子数深度 + 右子树深度，
+     * 而二叉树的直径深度，就是对每个节点都求直径长度，然后取最大的
+     * @param root
+     * @return
+     */
     public int diameterOfBinaryTree(TreeNode root) {
         dfs(root);
         return sum-1;  //sum是节点数，直径是算边数，减一

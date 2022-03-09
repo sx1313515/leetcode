@@ -22,8 +22,9 @@ public class LongestPalindromicSubstring {
         if(length==1){
             return s;
         }
-        if(length==0)
+        if (length == 0) {
             return null;
+        }
         boolean[][] values = new boolean[length][length];   //values[i][j]表示从i到j是否为回文串
         for(int i=0;i<length;i++){  //初始化一字母回文串，每个字母都是长度为一的回文串
             values[i][i]=true;
