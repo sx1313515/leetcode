@@ -19,19 +19,19 @@ public class Q232 {
     // 用来中转
     Stack<Integer> stack2 = new Stack<>();
 
-    public Q232() {
 
-    }
 
     public void push(int x) {
+        // 1、先出栈
         while (! stack1.empty()) {
             stack2.push(stack1.pop());
         }
+        // 2、将数据压入栈底
         stack1.push(x);
-        while (! stack2.empty()) {
+        // 3、入栈，1和3的操作是互补的，可以保证元素的顺序不变
+        while (!stack2.empty()) {
             stack1.push(stack2.pop());
         }
-        stack2 = new Stack<>();
     }
 
     public int pop() {

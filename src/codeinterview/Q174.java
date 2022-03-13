@@ -32,6 +32,12 @@ public class Q174 {
             if (pop.left == null || pop.right == null) {  //如果当前节点并不是左右孩子节点全有，那么之后的节点必须都为叶节点，否则返回 false
                 rightNeedNull = true;
             }
+            if (pop.left != null) {
+                queue.push(pop.left);
+            }
+            if (pop.right != null) {
+                queue.push(pop.right);
+            }
         }
         return true;
     }
@@ -43,21 +49,28 @@ public class Q174 {
      * @param root
      * @return
      */
-    private int maxValue = Integer.MIN_VALUE;
+    private long maxValue = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {  //maxValue表示上次遍历的元素
         if (root == null) {
             return true;
         }
+        // 加if方便快速判断和返回
         if (!isValidBST(root.left)) {
             return false;
         }
-        if (root.val < maxValue) {
+        if (root.val <= maxValue) {
             return false;
         }
+        // 更新最大值
         maxValue = root.val;
-        return !isValidBST(root.right);
+        return isValidBST(root.right);
 
     }
+
+    public static void main(String[] args) {
+        System.out.println(Integer.MIN_VALUE);
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;

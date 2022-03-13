@@ -20,9 +20,11 @@ public class Q15 {
         HashSet<String> memo = new HashSet<>();
         int length = num.length;
         int m,n;
+        // 固定一个元素，移动剩下两个元素
         for(int i=0;i<length-2;i++){
             m = i + 1;  //左指针
             n = length-1;  //右指针
+            // 这里不需要二分法，全遍历就可以了
             while (m<n){
                 if(num[m]+num[n]+num[i]==0){  //满足要求
                     if (memo.add(num[i] + "_" + num[m] + "_" + num[n])) {//不存在，可以产生，并写入集合去重

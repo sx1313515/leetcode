@@ -27,6 +27,10 @@ public class Q897 {
         dfs(root.right);
     }
 
+    public static void main(String[] args) {
+        System.out.println(0&0);
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;

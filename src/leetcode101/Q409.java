@@ -13,16 +13,20 @@ public class Q409 {
     public int longestPalindrome(String s) {
         char[] chars = s.toCharArray();
         int length = chars.length;
-        char[] memo = new char[128];
+        int[] memo = new int[128];
         int count = 0;
         for (int i = 0; i < length; i++) {
-            if (memo[chars[i]] == '1') {
-                memo[chars[i]] = '0';
+            // 之前出现过
+            if (memo[chars[i]] == 1) {
+                // 复原
+                memo[chars[i]] = 0;
                 count = count + 2;
+            // 之前没出现过
             } else {
-                memo[chars[i]] = '1';
+                memo[chars[i]] = 1;
             }
         }
+        // 可以凑个奇数
         if (count < length) {
             count ++;
         }
