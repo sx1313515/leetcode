@@ -9,6 +9,7 @@ package leetcode.array;
  */
 public class Q11 {
     public int maxArea(int[] height) {
+
         int result = 0;
         int low = 0, heigh = height.length-1;
         while(low<heigh){
